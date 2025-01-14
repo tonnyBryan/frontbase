@@ -115,7 +115,7 @@ export default {
       try {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
-        console.log("Utilisateur connecté :", user);
+        console.log("Utilisateur :", user);
         this.$router.push('/app/v1')
       } catch (error) {
         console.error("Erreur lors de la connexion :", error);
