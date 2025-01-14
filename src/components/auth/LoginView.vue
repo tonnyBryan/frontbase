@@ -77,14 +77,23 @@
         <button id="submit-btn" type="submit" class="btn btn-warning w-100 mb-3 fw-bold">
           Continue
         </button>
+
+        <p style="text-align: center">or</p>
+        <SignInWithGoogleBtn @click="signInWithGoogle"></SignInWithGoogleBtn>
       </form>
     </div>
+
   </div>
 </template>
 
 <script>
+import { auth } from "@/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import SignInWithGoogleBtn from '@/components/button/SignInWithGoogleBtn.vue'
+
 export default {
   name: 'LoginView',
+  components: { SignInWithGoogleBtn },
   data() {
     return {
       email: '',
@@ -97,8 +106,20 @@ export default {
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword
     },
-    handleLogin() {
+    async handleLogin() {
       this.$router.push('/app/v1')
+    },
+
+    async signInWithGoogle() {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log("Utilisateur :", user);
+        this.$router.push('/app/v1')
+      } catch (error) {
+        console.error("Erreur lors de la connexion :", error);
+      }
     }
   },
 }
