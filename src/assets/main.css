@@ -1,0 +1,73 @@
+@import './base.css';
+
+#app {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(235, 235, 235, 0.64);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+.router-link-active {
+  color: #ffc107 !important;
+}
+
+.bold {
+  color: #fff;
+  font-weight: 700;
+}
+
+.yellow {
+  color: #ffc107;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Supprimer les flèches sur Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+  .cd {
+    height: 100%;
+    border-radius: unset !important;
+    padding: 1rem !important;
+    padding-top: 4rem !important;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.annuler {
+  background-color: #2b3139;
+  color: #eaecef;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.annuler:hover {
+  background-color: #33383f;
+}
